@@ -12,4 +12,8 @@ urlpatterns = [
     url(r'^photo/create/$', views.PhotoCreate.as_view(), name='photo-create'),
     #Delete
     url(r'^photo/(?P<pk>\d+)/delete/$', views.PhotoDelete.as_view(), name='photo-delete'),
+    #Crear categoria
+    url(r'^category/create/$', views.CategoryCreate.as_view(), name='category-create'),
+     #Delete categoria
+    url(r'^category/(?P<category_id>\d+)/delete/$', views.CategoryDelete.as_view(), name='category-delete'),
     ]

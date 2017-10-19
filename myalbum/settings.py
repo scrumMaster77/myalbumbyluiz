@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'album'
+    'album',
+    'django_adminlte',
+    'django_adminlte_theme',
 ]
 
 MIDDLEWARE = [
@@ -76,8 +78,13 @@ WSGI_APPLICATION = 'myalbum.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'myalbum',
+        'USER': 'luiseduardo',
+        'PASSWORD':'lu13edu4rd0',
+        'HOST':'localhost',
+        'POST':5432,
+        'CHARSET':'UTF8'
     }
 }
 

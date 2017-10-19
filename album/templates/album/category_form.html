@@ -3,6 +3,6 @@
  <form enctype="multipart/form-data" method="post">{% csrf_token %}
  {{ form.as_p }}
  <button type="submit" class="btn btn-primary">Save</button>
- <a class='btn btn-warning' href="{% url 'photo-list' %}">Cancel</a>
+ <a class='btn btn-warning' href="{% url 'category-list' %}">Cancel</a>
  </form>
 {% endblock content%} 

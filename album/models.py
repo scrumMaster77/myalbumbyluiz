@@ -14,6 +14,9 @@ class Category(models.Model):
     def __unicode__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('category-list')
+
 class Photo(models.Model):
     """ Fotos del album """
     category = models.ForeignKey(Category, null=True, blank=True)
@@ -33,3 +36,8 @@ class Photo(models.Model):
 def photo_delete(sender, instance, **kwargs):
     """Borra los ficheros de las fotos que se eliminan. """
     instance.photo.delete(False)
+
+@receiver(post_delete, sender=Category)
+def category_delete(sender, instance, **kwargs):
+    """Borra los ficheros de las categorias que se eliminan. """
+    instance.category.delete(False)

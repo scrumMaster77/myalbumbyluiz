@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+#QUITAR EL ERROR DE CODIFICACION ENTRE UTF-8 Y ASCCI
+import sys 
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 from django.contrib import admin
 

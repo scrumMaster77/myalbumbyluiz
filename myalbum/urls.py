@@ -19,4 +19,4 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^album/', include('album.urls')),
     url(r'^admin/', admin.site.urls),
-    ]
+]    

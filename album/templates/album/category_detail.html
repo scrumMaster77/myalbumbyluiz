@@ -4,7 +4,7 @@
  <h2>{{ object.name }}</h2>
  <hr>
 {% endblock section %}
-{% block maincontent %}
+{% block content %}
 <div>
     <table border="1px">
         <tr>
@@ -12,7 +12,7 @@
         <td>
             <div>{{ p.title }}</div>
                 <div>
-                    <a href="{% url "photo-detail" p.id %}">
+                    <a href="{% url 'photo-detail' p.id %}">
                     <img src="{% static p.photo.url %}" style="width:200px;height:200px"/>
                     </a>
                 </div>
@@ -21,4 +21,4 @@
  </tr> 
 </table>
 </div>
-{% endblock maincontent %} 
+{% endblock content %} 
