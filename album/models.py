@@ -37,7 +37,7 @@ def photo_delete(sender, instance, **kwargs):
     """Borra los ficheros de las fotos que se eliminan. """
     instance.photo.delete(False)
 
-@receiver(post_delete, sender=Category)
-def category_delete(sender, instance, **kwargs):
-    """Borra los ficheros de las categorias que se eliminan. """
-    instance.category.delete(False)
+#@receiver(post_delete, sender=Category)
+#def category_delete(sender, instance, **kwargs):
+#    """Borra los ficheros de las categorias que se eliminan. """
+#    instance.category.delete(False)

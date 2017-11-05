@@ -15,5 +15,5 @@ urlpatterns = [
     #Crear categoria
     url(r'^category/create/$', views.CategoryCreate.as_view(), name='category-create'),
      #Delete categoria
-    url(r'^category/(?P<category_id>\d+)/delete/$', views.CategoryDelete.as_view(), name='category-delete'),
+    #url(r'^registro/(?P<pk>\d+)/register.html/$', views.CategoryDelete.as_view(), name='category-delete'),
     ]

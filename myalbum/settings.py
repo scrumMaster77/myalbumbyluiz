@@ -25,8 +25,13 @@ SECRET_KEY = '5z3w=v=c^wqyr^6117bats6w(+q@!$^88&26_6t2i)6*r^a&u%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS =[]
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'gokupar1234@gmail.com'
+EMAIL_HOST_PASSWORD = 'gokupar1234'
+EMAIL_PORT = 587
+MAIL_USE_TLS = True
 
 # Application definition
 
@@ -35,8 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'registration',
     'album',
     'django_adminlte',
     'django_adminlte_theme',
@@ -132,3 +140,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 STATICFILES_DIRS = (
  os.path.join(BASE_DIR, 'media'),
 ) 
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+SITE_ID = 1
+CRISPY_TEMPLATE_PACK = 'bootstrap3' 
