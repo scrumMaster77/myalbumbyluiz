@@ -1,8 +1,8 @@
-{% extends "registration/registration_base.html" %}
-{% load i18n %}
-
-{% block title %}{% trans "Logged out" %}{% endblock %}
-
-{% block content %}
-<p>{% trans "Successfully logged out" %}.</p>
+{% extends "stylelogin.html" %} {% load i18n %} {% block content %} 
+<div class='col-sm-6 col-sm-offset-5'>
+    <p>{% trans "Logged out" %}</p>
+    <div class="col-sm-3">
+        <a href="{% url 'auth_login' %}"> Iniciar Sesión</a>
+    </div> 
+</div>
 {% endblock %}

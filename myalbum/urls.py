@@ -15,10 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from rest_framework import routers
+from album import views
 
+router = routers.DefaultRouter()
+router.register(r'categories', views.CategoryViewSet)
+router.register(r'photos', views.PhotoViewSet)
 
 urlpatterns = [
+    url(r'^', include(router.urls)),
     url(r'^album/', include('album.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('registration.backends.default.urls')),
+    url('', include('social.apps.django_app.urls', namespace='social')),
+    url('', include('django.contrib.auth.urls', namespace='auth')),
+    url('', include('social.apps.django_app.urls', namespace='complete')),
 ]    

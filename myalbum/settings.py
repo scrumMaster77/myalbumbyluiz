@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -27,9 +26,9 @@ DEBUG = True
 
 ALLOWED_HOSTS =[]
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'gokupar1234@gmail.com'
-EMAIL_HOST_PASSWORD = 'gokupar1234'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "umarianaframeworks@gmail.com"
+EMAIL_HOST_PASSWORD = "ingsis601"
 EMAIL_PORT = 587
 MAIL_USE_TLS = True
 
@@ -43,11 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'social.apps.django_app.default',
     'crispy_forms',
     'registration',
     'album',
     'django_adminlte',
     'django_adminlte_theme',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'myalbum.urls'
@@ -140,7 +143,26 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 STATICFILES_DIRS = (
  os.path.join(BASE_DIR, 'media'),
 ) 
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 SITE_ID = 1
 CRISPY_TEMPLATE_PACK = 'bootstrap3' 
+LOGIN_REDIRECT_URL = '/album'
+LOGOUT_URL = '/accounts/logout'
+
+AUTHENTICATION_BACKENDS = (
+        'social_core.backends.github.GithubOAuth2',
+        'social_core.backends.twitter.TwitterOAuth',
+        'social_core.backends.facebook.FacebookOAuth2',
+        'django.contrib.auth.backends.ModelBackend',
+)
+SOCIAL_AUTH_LOGIN_REDIRECT_URL='/album'
+SOCIAL_AUTH_LOGIN_ERROR_URL = '/album'
+
+SOCIAL_AUTH_TWITTER_KEY ='zFRSRX2nYWeDKKSDyF0dckT62'
+SOCIAL_AUTH_TWITTER_SECRET ='F09ZMiFYBseo34rqWmxbhzhJalZazCJM0t1zpAs9RsAwpSCjxa'
+
+SOCIAL_AUTH_FACEBOOK_KEY ='157247744879226'
+SOCIAL_AUTH_FACEBOOK_SECRET ='f7c374d069cbb603ad33e17593d39baf'
+
