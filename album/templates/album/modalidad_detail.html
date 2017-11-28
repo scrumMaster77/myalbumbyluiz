@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% block section %}
+ <h2>
+ {{ object.title }}
+ {% if object.favorite %}
+    &#9733;
+ {% else %}
+    &#9734;
+ {% endif %}
+ {% if object.id_modalidad %}
+ (<a href="{% url 'modalidad-detail' object.id_modalidad %}">{{ object.modalidad }}</a>)
+ {% endif %}
+ </h2>
+ <p><strong>comments: </strong>{{ object.comment|default:"no comments" }}</p>
+ <a href="{% url 'modalidad-update' object.id_modalidad %}">Editar</a>
+ <a href="{% url 'modalidad-delete' object.id_modalidad %}">Eliminar</a>
+ <hr>
+{% endblock section %}
+{% endblock content %} 

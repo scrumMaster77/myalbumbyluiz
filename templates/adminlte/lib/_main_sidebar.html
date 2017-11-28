@@ -26,56 +26,6 @@
             <li class="header">{% block nav_heading %}NAVEGACION PRINCIPAL{% endblock %}</li>
 
             {% block nav_links %}
-                <!--<li>
-                    <a href="{% url 'photo-list' %}">
-                        <i class="fa fa-camera"></i> <span>FOTOS</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li>
-                            <a href="{% url 'photo-list'%}">
-                                <i class="fa fa-binoculars"></i>Ver mis Fotos
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="treeview-menu">
-                        <li>
-                            <a href="{% url 'photo-create'%}">
-                                <i class="fa fa-file-photo-o"></i>Subir Foto
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="{% url 'category-list' %}">
-                        <i class="fa fa-group"></i> <span>CATEGORIAS</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li>
-                            <a href="{% url 'category-list' %}">
-                                <i class="fa fa-binoculars"></i>Ver mis Categoria
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="treeview-menu">
-                        <li>
-                            <a href="{% url 'category-create' %}">
-                                <i class="fa  fa-pencil-square-o"></i>Crear Categoria
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="treeview-menu">
-                        <li>
-                            <a href="{% url 'photo-create' %}">
-                                <i class="fa fa-trash-o"></i>Eliminar Categoria
-                            </a>
-                        </li>
-                    </ul>
-                </li>-->
                 <li class="treeview">
                     <a href="{% url 'egresado-create' %}">
                         <i class="fa fa-university"></i> <span>CONSULTAR CURSOS</span>
@@ -130,6 +80,102 @@
                         <li>
                             <a href="{% url 'egresado-list' %}">
                                 <i class="fa fa-list-ul"></i>Lista de egresados
+                            </a>
+                        </li>
+                    </ul>
+                 </li>
+                 {% endif %}
+                 {% if perms.egresado.egresado %}
+                 <li class="treeview">
+                    <a href="{% url 'facultad-create' %}">
+                        <i class="fa fa-pencil-square-o"></i> <span>FACULTADES</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{% url 'facultad-create' %}">
+                                <i class="fa fa-id-card"></i>Crear facultad
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{% url 'facultad-list' %}">
+                                <i class="fa fa-list-ul"></i>Lista de facultades
+                            </a>
+                        </li>
+                    </ul>
+                 </li>
+                 {% endif %}
+                 {% if perms.egresado.egresado %}
+                 <li class="treeview">
+                    <a href="{% url 'programa-create' %}">
+                        <i class="fa fa-pencil-square-o"></i> <span>PROGRAMAS</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{% url 'programa-create' %}">
+                                <i class="fa fa-id-card"></i>Crear programa
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{% url 'programa-list' %}">
+                                <i class="fa fa-list-ul"></i>Lista de programas
+                            </a>
+                        </li>
+                    </ul>
+                 </li>
+                 {% endif %}
+                 {% if perms.egresado.egresado %}
+                 <li class="treeview">
+                    <a href="{% url 'modalidad-create' %}">
+                        <i class="fa fa-pencil-square-o"></i> <span>MODALIDAD FORMACIÓN</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{% url 'modalidad-create' %}">
+                                <i class="fa fa-id-card"></i>Crear modalidad
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{% url 'modalidad-list' %}">
+                                <i class="fa fa-list-ul"></i>Lista de modalidades
+                            </a>
+                        </li>
+                    </ul>
+                 </li>
+                 {% endif %}
+                 {% if perms.egresado.egresado %}
+                 <li class="treeview">
+                    <a href="{% url 'tipo_pago-create' %}">
+                        <i class="fa fa-pencil-square-o"></i> <span>MODO FINANCIACIÓN</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{% url 'tipo_pago-create' %}">
+                                <i class="fa fa-id-card"></i>Crear modo financiación
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{% url 'tipo_pago-list' %}">
+                                <i class="fa fa-list-ul"></i>Lista de financiación
                             </a>
                         </li>
                     </ul>

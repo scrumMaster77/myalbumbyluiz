@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% block section %}
+ <h2>
+ {{ object.title }}
+ {% if object.favorite %}
+    &#9733;
+ {% else %}
+    &#9734;
+ {% endif %}
+ {% if object.id_facultad %}
+ (<a href="{% url 'facultad-detail' object.id_facultad %}">{{ object.facultad }}</a>)
+ {% endif %}
+ </h2>
+ <p><strong>comments: </strong>{{ object.comment|default:"no comments" }}</p>
+ <a href="{% url 'facultad-update' object.id_facultad %}">Editar</a>
+ <a href="{% url 'facultad-delete' object.id_facultad %}">Eliminar</a>
+ <hr>
+{% endblock section %}
+{% endblock content %} 

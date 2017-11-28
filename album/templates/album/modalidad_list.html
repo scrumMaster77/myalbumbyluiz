@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block section %}
+    <h2>Category</h2>
+    <hr>
+{% endblock section %}
+{% block content_header %}
+<section class="content-header"> 
+    <h3 class="title">Modalidad Formación</h3>
+    <div class="col-md-4 well">
+    <div class="panel-heading">
+<div>
+    {% for c in object_list %}
+    <div>
+        <a href="{% url 'modalidad-detail' c.pk %}">° {{ c.tipo }}</a>
+    </div>
+    {% endfor %}
+</div>
+</div>
+</div>
+</section> 
+{% endblock content_header %}

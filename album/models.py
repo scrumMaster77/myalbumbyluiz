@@ -55,8 +55,13 @@ class Facultad(models.Model):
     class Meta:
         managed = False
         db_table = 'facultad'
+
     def __unicode__(self):
             return self.nombre
+    
+    def get_absolute_url(self):
+        return reverse('facultad-list')
+
 
 
 class Genero(models.Model):
@@ -81,6 +86,9 @@ class Modalidad(models.Model):
 
     def __unicode__(self):
             return self.tipo
+    
+    def get_absolute_url(self):
+        return reverse('modalidad-list')
 
 
 class Programa(models.Model):
@@ -94,6 +102,9 @@ class Programa(models.Model):
 
     def __unicode__(self):
             return self.nombre
+    
+    def get_absolute_url(self):
+        return reverse('programa-list')
 
 class TipoPago(models.Model):
     id_tipo_pago = models.AutoField(primary_key=True)
@@ -105,20 +116,9 @@ class TipoPago(models.Model):
     
     def __unicode__(self):
             return self.tipo
-
-class Post(models.Model):
-    numero_doc = models.CharField(max_length=50, default='numero_doc')
-    nombre = models.CharField(max_length=150, default="nombre")
-    apellido = models.CharField(max_length=150, default="apellido")
-    genero = models.CharField(max_length=150, default="genero")
-    edad = models.CharField(max_length=150, default="edad")
-    #foto = models.ImageField(upload_to='photos/')
     
-    def __unicode__(self):
-        return self.numero_doc
-        
     def get_absolute_url(self):
-        return reverse('lista-egresados')
+        return reverse('tipo_pago-list')
 
 class Egresado(models.Model):
     id_egresado = models.AutoField(primary_key=True)

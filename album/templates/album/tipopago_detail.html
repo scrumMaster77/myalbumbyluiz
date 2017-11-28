@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% block section %}
+ <h2>
+ {{ object.title }}
+ {% if object.favorite %}
+    &#9733;
+ {% else %}
+    &#9734;
+ {% endif %}
+ {% if object.id_tipo_pago %}
+ (<a href="{% url 'tipo_pago-detail' object.id_tipo_pago %}">{{ object.modalidad }}</a>)
+ {% endif %}
+ </h2>
+ <p><strong>comments: </strong>{{ object.comment|default:"no comments" }}</p>
+ <a href="{% url 'tipo_pago-update' object.id_tipo_pago %}">Editar</a>
+ <a href="{% url 'tipo_pago-delete' object.id_tipo_pago %}">Eliminar</a>
+ <hr>
+{% endblock section %}
+{% endblock content %} 

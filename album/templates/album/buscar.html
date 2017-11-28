@@ -26,6 +26,14 @@
               {% for egresado in results %}
                 <a href="{% url 'certificado_egresado_pdf' %}">
                 <li>{{ egresado|escape }}</li>
+              </div>
+              <div class="col-sm-20 col-sm-offset-6">
+                <div>                            
+                  <a href="{% url 'certificado_egresado_pdf' %}" class="btn btn-info btn-block" style="width:40px;height:40px">
+                      <span class="glyphicon glyphicon-file"></span>
+                  </a>                          
+              </div> 
+              </div> 
               </a>
               {% endfor %}
               </ul>

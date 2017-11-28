@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% block section %}
+ <h2>
+ {{ object.title }}
+ {% if object.favorite %}
+    &#9733;
+ {% else %}
+    &#9734;
+ {% endif %}
+ {% if object.id_programa %}
+ (<a href="{% url 'programa-detail' object.id_programa %}">{{ object.programa }}</a>)
+ {% endif %}
+ </h2>
+ <p><strong>comments: </strong>{{ object.comment|default:"no comments" }}</p>
+ <a href="{% url 'programa-update' object.id_programa %}">Editar</a>
+ <a href="{% url 'programa-delete' object.id_programa %}">Eliminar</a>
+ <hr>
+{% endblock section %}
+{% endblock content %} 
