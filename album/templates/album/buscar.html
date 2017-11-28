@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<html lang="en">
+        <head>
+            <title>Buscar{% if query %} Results{% endif %}</title>
+        </head>
+        <body>
+        <div class="col-sm-10 col-sm-offset-1">
+        <div ALIGN="center">
+          <h3>Para generar constancias de la Universidad Mariana </h3>
+          <h3>favor ingrese su número de documento</h3>
+        </div>
+          <br>
+        <div ALIGN="center">
+          <form action="." method="GET">
+            <input type="text" name="q" value="{{ query|escape }}"><br><br>
+            <input type="submit" value="Buscar">
+          </form>
+        </div>
+        <div ALIGN="center">
+          {% if query %}
+            <h2>Resultado para "{{ query|escape }}"</h2>
+            {% if results %}
+              <ul>
+              {% for egresado in results %}
+                <a href="{% url 'certificado_egresado_pdf' %}">
+                <li>{{ egresado|escape }}</li>
+              </a>
+              {% endfor %}
+              </ul>
+            {% else %} 
+              <p>El egresado con número de documento "{{query|escape}}" no se encuentra registrado en la base de datos de la Universidad</p>
+            {% endif %}
+          {% endif %}
+        </div>
+        </div>
+    </body>
+</html>
+{% endblock content%} 

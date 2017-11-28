@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% block section %}
+ <h2>
+ {{ object.title }}
+ {% if object.favorite %}
+    &#9733;
+ {% else %}
+    &#9734;
+ {% endif %}
+ {% if object.id_egresado %}
+ (<a href="{% url 'egresado-detail' object.id_egresado %}">{{ object.egresado }}</a>)
+ {% endif %}
+ </h2>
+ <p><strong>comments: </strong>{{ object.comment|default:"no comments" }}</p>
+ <a href="{% url 'egresado-update' object.id_egresado %}">Editar</a>
+ <a href="{% url 'egresado-delete' object.id_egresado %}">Eliminar</a>
+ <hr>
+{% endblock section %}
+{% endblock content %} 

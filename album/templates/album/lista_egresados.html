@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block section %}
+    <h2>Category</h2>
+    <hr>
+{% endblock section %}
+{% block content_header %}
+<section class="content-header"> 
+    <h3 class="title">Egresados</h3>
+    <div class="col-md-4 well">
+    <div class="panel-heading">
+<div>
+    {% for c in object_list %}
+    <div>
+        <a href="{% url 'egresado-detail' c.pk %}">° {{ c.nombre }} {{ c.apellido }}</a>
+    </div>
+    {% endfor %}
+</div>
+</div>
+</div>
+</section> 
+{% endblock content_header %}

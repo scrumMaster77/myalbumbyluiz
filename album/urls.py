@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from album import views
+from album import views, models
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
@@ -14,5 +14,12 @@ urlpatterns = [
     #Delete
     url(r'^photo/(?P<pk>\d+)/delete/$', views.PhotoDelete.as_view(), name='photo-delete'),
     #Crear categoria
-    url(r'^category/create/$', views.CategoryCreate.as_view(), name='category-create'),    
+    url(r'^category/create/$', views.CategoryCreate.as_view(), name='category-create'),
+    url(r'^certificado_egresado_pdf/$',views.CertificadoEgresadoPDF.as_view(), name='certificado_egresado_pdf'),  
+    url(r'^buscar/$',views.Buscar, name='buscar-egresado'),  
+    url(r'^egresado/create/$', views.EgresadoCreate.as_view(), name='egresado-create'),
+    url(r'^listaEgresado/$', views.egresado_list, name='egresado-list'),
+    url(r'^egresado/(\d+)/detail/$', views.egresado_detail, name='egresado-detail'),
+    url(r'^egresado/(?P<pk>\d+)/delete/$', views.EgresadoDelete.as_view(), name='egresado-delete'),
+    url(r'^egresado/(?P<pk>\d+)/update/$', views.EgresadoUpdate.as_view(), name='egresado-update'),
 ]

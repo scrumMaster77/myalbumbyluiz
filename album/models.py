@@ -37,7 +37,115 @@ def photo_delete(sender, instance, **kwargs):
     """Borra los ficheros de las fotos que se eliminan. """
     instance.photo.delete(False)
 
-#@receiver(post_delete, sender=Category)
-#def category_delete(sender, instance, **kwargs):
-#    """Borra los ficheros de las categorias que se eliminan. """
-#    instance.category.delete(False)
+class EstadoCivil(models.Model):
+    id_estado = models.AutoField(primary_key=True)
+    estado = models.CharField(max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'estado_civil'
+    
+    def __unicode__(self):
+            return self.estado
+
+class Facultad(models.Model):
+    id_facultad = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=150, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'facultad'
+    def __unicode__(self):
+            return self.nombre
+
+
+class Genero(models.Model):
+    id_genero = models.AutoField(primary_key=True)
+    tipo = models.CharField(max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'genero'
+        
+    def __unicode__(self):
+            return self.tipo
+
+
+class Modalidad(models.Model):
+    id_modalidad = models.AutoField(primary_key=True)
+    tipo = models.CharField(max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'modalidad'
+
+    def __unicode__(self):
+            return self.tipo
+
+
+class Programa(models.Model):
+    id_programa = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=150, blank=True, null=True, default='nombre')
+    id_facultad = models.ForeignKey(Facultad, models.DO_NOTHING, db_column='id_facultad', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'programa'
+
+    def __unicode__(self):
+            return self.nombre
+
+class TipoPago(models.Model):
+    id_tipo_pago = models.AutoField(primary_key=True)
+    tipo = models.CharField(max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'tipo_pago'
+    
+    def __unicode__(self):
+            return self.tipo
+
+class Post(models.Model):
+    numero_doc = models.CharField(max_length=50, default='numero_doc')
+    nombre = models.CharField(max_length=150, default="nombre")
+    apellido = models.CharField(max_length=150, default="apellido")
+    genero = models.CharField(max_length=150, default="genero")
+    edad = models.CharField(max_length=150, default="edad")
+    #foto = models.ImageField(upload_to='photos/')
+    
+    def __unicode__(self):
+        return self.numero_doc
+        
+    def get_absolute_url(self):
+        return reverse('lista-egresados')
+
+class Egresado(models.Model):
+    id_egresado = models.AutoField(primary_key=True)
+    numero_documento = models.CharField(max_length=300, blank=True, null=True)
+    nombre = models.CharField(max_length=150, blank=True, null=True)
+    apellido = models.CharField(max_length=300, blank=True, null=True)
+    id_programa = models.ForeignKey(Programa, models.DO_NOTHING, db_column='id_programa', blank=True, null=True)
+    fecha_inicio = models.CharField(max_length=50, blank=True, null=True)
+    fecha_fin = models.CharField(max_length=50, blank=True, null=True)
+    id_modalidad = models.ForeignKey(Modalidad, models.DO_NOTHING, db_column='id_modalidad', blank=True, null=True)
+    id_facultad = models.ForeignKey(Facultad, models.DO_NOTHING, db_column='id_facultad', blank=True, null=True)
+    estrato = models.CharField(max_length=50, blank=True, null=True)
+    id_genero = models.ForeignKey(Genero, models.DO_NOTHING, db_column='id_genero', blank=True, null=True)
+    edad = models.CharField(max_length=50, blank=True, null=True)
+    ciudad = models.CharField(max_length=50, blank=True, null=True)
+    id_estado = models.ForeignKey(EstadoCivil, models.DO_NOTHING, db_column='id_estado', blank=True, null=True)
+    id_tipo_pago = models.ForeignKey(TipoPago, models.DO_NOTHING, db_column='id_tipo_pago', blank=True, null=True)
+    
+    class Meta:
+        managed = False
+        db_table = 'egresado'
+       
+    def __unicode__(self):
+        return unicode(self.nombre)
+    
+    def get_absolute_url(self):
+        return reverse('egresado-list')
+
+
+    

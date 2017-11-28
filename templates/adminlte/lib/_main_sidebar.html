@@ -26,7 +26,7 @@
             <li class="header">{% block nav_heading %}NAVEGACION PRINCIPAL{% endblock %}</li>
 
             {% block nav_links %}
-                <li>
+                <!--<li>
                     <a href="{% url 'photo-list' %}">
                         <i class="fa fa-camera"></i> <span>FOTOS</span>
                         <span class="pull-right-container">
@@ -75,7 +75,66 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li>-->
+                <li class="treeview">
+                    <a href="{% url 'egresado-create' %}">
+                        <i class="fa fa-university"></i> <span>CONSULTAR CURSOS</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{% url 'egresado-create' %}">
+                                <i class="fa fa-binoculars"></i>Cursos a Fines
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'egresado-create' %}">
+                                <i class="fa fa-binoculars"></i>Cursos Especificos
+                            </a>
+                        </li>
+                    </ul>
+                 </li>
+                <li class="treeview">
+                    <a href="{% url 'category-list' %}">
+                        <i class="fa fa-pencil-square-o"></i> <span>CERTIFICADOS</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{% url 'buscar-egresado' %}">
+                                <i class="fa fa-id-card"></i>Generar certificado egresado
+                            </a>
+                        </li>
+                    </ul>
+                 </li>
+                 {% if perms.egresado.egresado %}
+                 <li class="treeview">
+                    <a href="{% url 'egresado-create' %}">
+                        <i class="fa fa-pencil-square-o"></i> <span>EGRESADOS</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{% url 'egresado-create' %}">
+                                <i class="fa fa-id-card"></i>Crear egresados
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="{% url 'egresado-list' %}">
+                                <i class="fa fa-list-ul"></i>Lista de egresados
+                            </a>
+                        </li>
+                    </ul>
+                 </li>
+                 {% endif %}
             {% endblock nav_links %}
             {% endblock nav_links_outer %}
         </ul>
