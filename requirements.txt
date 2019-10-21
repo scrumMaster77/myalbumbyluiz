@@ -15,7 +15,7 @@ django-crispy-forms==1.7.0
 django-registration-redux==1.8
 djangorestframework==3.7.3
 duplicity==0.7.6
-ecdsa==0.13
+ecdsa==0.13.3
 enum34==1.1.2
 feedparser==5.1.3
 Flask==0.12.2
