@@ -9,7 +9,7 @@ cryptography==1.2.3
 debtags==2.0
 defer==1.0.6
 dirspec==13.10
-Django==1.11.5
+Django==1.11.28
 django-adminlte2==0.1.6
 django-crispy-forms==1.7.0
 django-registration-redux==1.8
