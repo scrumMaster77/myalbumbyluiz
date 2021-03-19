@@ -13,7 +13,7 @@ Django==1.11.5
 django-adminlte2==0.1.6
 django-crispy-forms==1.7.0
 django-registration-redux==1.8
-djangorestframework==3.7.3
+djangorestframework==3.11.2
 duplicity==0.7.6
 ecdsa==0.13
 enum34==1.1.2
